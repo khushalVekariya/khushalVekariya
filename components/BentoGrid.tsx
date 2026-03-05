@@ -34,10 +34,10 @@ function BentoCard({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40, scale: 0.92, filter: "blur(10px)" }}
-      whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, delay, ease: [0.25, 0.4, 0.25, 1] }}
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-20px" }}
+      transition={{ duration: 0.5, delay: delay * 0.5, ease: [0.25, 0.4, 0.25, 1] }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => {
@@ -253,7 +253,7 @@ const stats = [
 
 export default function BentoGrid() {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const isInView = useInView(sectionRef, { once: true, margin: "-30px" });
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -263,7 +263,7 @@ export default function BentoGrid() {
   const bgY = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   return (
-    <section id="about" ref={sectionRef} className="py-20 sm:py-28 relative overflow-hidden">
+    <section id="about" ref={sectionRef} className="py-20 sm:py-28 relative overflow-x-clip">
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       {/* Parallax background glow */}

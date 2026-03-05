@@ -13,29 +13,27 @@ const roles = [
 ];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+  hidden: { opacity: 0, y: 20 },
   show: (delay: number) => ({
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.8, delay, ease: [0.25, 0.4, 0.25, 1] },
+    transition: { duration: 0.6, delay, ease: [0.25, 0.4, 0.25, 1] },
   }),
 };
 
 const letterContainer = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.04, delayChildren: 0.4 } },
+  show: { transition: { staggerChildren: 0.03, delayChildren: 0.3 } },
 };
 
 const letterAnim = {
-  hidden: { y: 40, opacity: 0, scale: 0.5, rotateX: -90, filter: "blur(8px)" },
+  hidden: { y: 30, opacity: 0, scale: 0.6, rotateX: -90 },
   show: {
     y: 0,
     opacity: 1,
     scale: 1,
     rotateX: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] },
+    transition: { duration: 0.5, ease: [0.25, 0.4, 0.25, 1] },
   },
 };
 
@@ -63,9 +61,7 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const yParallax = useTransform(scrollYProgress, [0, 1], [0, -150]);
-  const opacityFade = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scaleDown = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+  const yParallax = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   const shape1Y = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const shape2Y = useTransform(scrollYProgress, [0, 1], [0, -120]);
@@ -156,15 +152,15 @@ export default function Hero() {
 
       {/* Main content - split layout */}
       <motion.div
-        style={{ y: yParallax, opacity: opacityFade, scale: scaleDown }}
+        style={{ y: yParallax }}
         className="relative w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-32 sm:pt-24 pb-24 z-10 flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16"
       >
         {/* Left side - Text content */}
         <div className="flex-1 text-center lg:text-left">
           {/* Status badge */}
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.9, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 15, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.4, 0.25, 1] }}
             className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-accent/15 bg-accent/[0.04] backdrop-blur-sm mb-8"
           >
@@ -260,9 +256,9 @@ export default function Hero() {
         {/* Right side - Profile image with magical effects */}
         <motion.div
           ref={imageRef}
-          initial={{ opacity: 0, scale: 0.8, filter: "blur(20px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
           className="relative flex-shrink-0 w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] lg:w-[340px] lg:h-[340px]"
         >
           {/* Pulsing glow */}

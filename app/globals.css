@@ -200,3 +200,11 @@ html {
 input:focus, textarea:focus {
   box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.1);
 }
+
+/* Mobile: disable heavy blur/filter animations that cause rendering issues */
+@media (max-width: 768px) {
+  * {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}

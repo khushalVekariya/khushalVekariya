@@ -8,12 +8,11 @@ import MagneticButton from "./MagneticButton";
 import SpotlightCard from "./SpotlightCard";
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.6, delay: i * 0.12, ease: [0.25, 0.4, 0.25, 1] },
+    transition: { duration: 0.5, delay: i * 0.08, ease: [0.25, 0.4, 0.25, 1] },
   }),
 };
 
@@ -83,7 +82,7 @@ function FloatingLabelInput({
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const isInView = useInView(sectionRef, { once: true, margin: "-30px" });
 
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -118,7 +117,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 sm:py-28 relative overflow-hidden">
+    <section id="contact" ref={sectionRef} className="py-20 sm:py-28 relative overflow-x-clip">
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       <motion.div
@@ -146,7 +145,7 @@ export default function Contact() {
           <motion.div
             initial={{ width: 0 }}
             animate={isInView ? { width: 80 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="glow-line mb-8"
           />
           <motion.p

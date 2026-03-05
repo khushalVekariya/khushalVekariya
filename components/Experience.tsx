@@ -36,7 +36,7 @@ const experiences = [
 
 export default function Experience() {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const isInView = useInView(sectionRef, { once: true, margin: "-30px" });
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -49,7 +49,7 @@ export default function Experience() {
     <section
       id="experience"
       ref={sectionRef}
-      className="py-20 sm:py-28 relative overflow-hidden"
+      className="py-20 sm:py-28 relative overflow-x-clip"
     >
       <div className="section-divider absolute top-0 left-0 right-0" />
 
@@ -82,7 +82,7 @@ export default function Experience() {
           <motion.div
             initial={{ width: 0 }}
             animate={isInView ? { width: 80 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="glow-line mb-12"
           />
         </motion.div>
@@ -93,8 +93,8 @@ export default function Experience() {
             initial={{ height: 0 }}
             animate={isInView ? { height: "100%" } : {}}
             transition={{
-              duration: 1.5,
-              delay: 0.5,
+              duration: 1,
+              delay: 0.2,
               ease: [0.25, 0.4, 0.25, 1],
             }}
             className="absolute left-[5px] md:left-8 top-0 w-px bg-gradient-to-b from-accent via-accent/30 to-transparent"
@@ -104,12 +104,12 @@ export default function Experience() {
             {experiences.map((exp, i) => (
               <motion.div
                 key={exp.role}
-                initial={{ opacity: 0, x: -40, filter: "blur(8px)" }}
-                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, margin: "-50px" }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
                 transition={{
-                  duration: 0.7,
-                  delay: i * 0.15,
+                  duration: 0.5,
+                  delay: i * 0.08,
                   ease: [0.25, 0.4, 0.25, 1],
                 }}
                 className="relative pl-8 md:pl-20"

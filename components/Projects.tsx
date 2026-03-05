@@ -184,7 +184,7 @@ function ProjectCard({
 
 export default function Projects() {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const isInView = useInView(sectionRef, { once: true, margin: "-30px" });
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -194,7 +194,7 @@ export default function Projects() {
   const bgY = useTransform(scrollYProgress, [0, 1], [80, -80]);
 
   return (
-    <section id="projects" ref={sectionRef} className="py-20 sm:py-28 relative overflow-hidden">
+    <section id="projects" ref={sectionRef} className="py-20 sm:py-28 relative overflow-x-clip">
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       {/* Parallax background glow */}
@@ -223,17 +223,17 @@ export default function Projects() {
           <motion.div
             initial={{ width: 0 }}
             animate={isInView ? { width: 80 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="glow-line mb-12"
           />
         </motion.div>
 
         {/* Featured project - full width */}
         <motion.div
-          initial={{ opacity: 0, y: 60, scale: 0.93, filter: "blur(10px)" }}
-          whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-20px" }}
+          transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
           className="mb-6"
         >
           <ProjectCard project={featured} index={0} isInView={isInView} isFeatured />
@@ -244,24 +244,12 @@ export default function Projects() {
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
-              initial={{
-                opacity: 0,
-                y: 50,
-                scale: 0.93,
-                rotate: i % 2 === 0 ? -1 : 1,
-                filter: "blur(8px)",
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                rotate: 0,
-                filter: "blur(0px)",
-              }}
-              viewport={{ once: true, margin: "-60px" }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-20px" }}
               transition={{
-                duration: 0.7,
-                delay: i * 0.1,
+                duration: 0.5,
+                delay: i * 0.06,
                 ease: [0.25, 0.4, 0.25, 1],
               }}
             >

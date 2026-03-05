@@ -12,7 +12,7 @@ interface Props {
 
 export default function TextReveal({ children, className = "", delay = 0, as: Tag = "span" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "-10px" });
 
   const words = children.split(" ");
 
