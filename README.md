@@ -139,20 +139,4 @@ const khushal = {
 
 ---
 
-<div align="center">
-
-**Open to freelance projects and collaborations.**
-**Let's build something worth launching.**
-
-<br/>
-
-<a href="mailto:khushalvekariya12@gmail.com">
-  <img src="https://img.shields.io/badge/Let's_Talk-6c63ff?style=for-the-badge&logo=gmail&logoColor=white" />
-</a>
-<a href="https://khushalvekariya.vercel.app">
-  <img src="https://img.shields.io/badge/View_Portfolio-111?style=for-the-badge&logo=vercel&logoColor=white" />
-</a>
-
-</div>
-
 <img src="https://capsule-render.vercel.app/api?type=waving&color=6c63ff&height=100&section=footer" width="100%" />
