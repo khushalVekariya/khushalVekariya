@@ -27,11 +27,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <motion.footer
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+    <footer
       className="relative border-t border-white/[0.06]"
     >
       <div className="max-w-6xl mx-auto px-6 py-16">
@@ -111,6 +107,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-    </motion.footer>
+    </footer>
   );
 }

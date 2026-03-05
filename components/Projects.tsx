@@ -112,8 +112,7 @@ function ProjectCard({
         <div className="relative z-10 flex flex-col h-full">
           <motion.div
             className={`h-0.5 rounded-full bg-gradient-to-r ${project.accentColor} mb-6`}
-            initial={{ width: 48 }}
-            whileInView={{ width: isFeatured ? 80 : 48 }}
+            style={{ width: isFeatured ? 80 : 48 }}
             whileHover={{ width: isFeatured ? 120 : 80 }}
             transition={{ duration: 0.5 }}
           />
@@ -206,32 +205,16 @@ export default function Projects() {
         </div>
 
         {/* Featured project - full width */}
-        <motion.div
-          initial={{ y: 20 }}
-          whileInView={{ y: 0 }}
-          viewport={{ once: true, margin: "-20px" }}
-          transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-          className="mb-6"
-        >
+        <div className="mb-6">
           <ProjectCard project={featured} index={0} isFeatured />
-        </motion.div>
+        </div>
 
         {/* Other projects - 2 column grid */}
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, i) => (
-            <motion.div
-              key={project.title}
-              initial={{ y: 20 }}
-              whileInView={{ y: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{
-                duration: 0.5,
-                delay: i * 0.06,
-                ease: [0.25, 0.4, 0.25, 1],
-              }}
-            >
+            <div key={project.title}>
               <ProjectCard project={project} index={i + 1} />
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

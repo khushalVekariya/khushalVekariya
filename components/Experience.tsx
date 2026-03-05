@@ -80,16 +80,8 @@ export default function Experience() {
 
           <div className="space-y-12">
             {experiences.map((exp, i) => (
-              <motion.div
+              <div
                 key={exp.role}
-                initial={{ x: -20 }}
-                whileInView={{ x: 0 }}
-                viewport={{ once: true, margin: "-20px" }}
-                transition={{
-                  duration: 0.5,
-                  delay: i * 0.08,
-                  ease: [0.25, 0.4, 0.25, 1],
-                }}
                 className="relative pl-8 md:pl-20"
               >
                 {/* Timeline dot */}
@@ -140,7 +132,7 @@ export default function Experience() {
                     ))}
                   </div>
                 </motion.div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

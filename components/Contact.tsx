@@ -159,13 +159,7 @@ export default function Contact() {
                 highlight: true,
               },
             ].map((item, i) => (
-              <motion.div
-                key={item.label}
-                initial={{ y: 15 }}
-                whileInView={{ y: 0 }}
-                viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.4, delay: i * 0.08, ease: [0.25, 0.4, 0.25, 1] }}
-              >
+              <div key={item.label}>
                 <SpotlightCard
                   className={`rounded-2xl border ${
                     item.highlight ? "border-accent/20 bg-accent/[0.03]" : "border-white/[0.06] bg-white/[0.02]"
@@ -184,15 +178,11 @@ export default function Contact() {
                     </div>
                   </div>
                 </SpotlightCard>
-              </motion.div>
+              </div>
             ))}
           </div>
 
-          <motion.form
-            initial={{ y: 15 }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.4, delay: 0.24, ease: [0.25, 0.4, 0.25, 1] }}
+          <form
             className="space-y-4"
             onSubmit={handleSubmit}
           >
@@ -281,7 +271,7 @@ export default function Contact() {
                 </motion.div>
               )}
             </div>
-          </motion.form>
+          </form>
         </div>
       </div>
     </section>

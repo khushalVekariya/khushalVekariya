@@ -8,11 +8,9 @@ import CountUp from "./CountUp";
 function BentoCard({
   children,
   className = "",
-  delay = 0,
 }: {
   children: ReactNode;
   className?: string;
-  delay?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
@@ -34,10 +32,6 @@ function BentoCard({
   return (
     <motion.div
       ref={ref}
-      initial={{ y: 20 }}
-      whileInView={{ y: 0 }}
-      viewport={{ once: true, margin: "-20px" }}
-      transition={{ duration: 0.4, delay: delay * 0.5, ease: [0.25, 0.4, 0.25, 1] }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => {
@@ -207,12 +201,8 @@ function TerminalCode() {
   return (
     <div className="font-mono text-xs leading-relaxed">
       {lines.map((line, i) => (
-        <motion.div
+        <div
           key={i}
-          initial={{ x: -10 }}
-          whileInView={{ x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8 + i * 0.1 }}
           className="flex"
         >
           <span className="text-white/15 w-6 text-right mr-4 select-none">
@@ -221,7 +211,7 @@ function TerminalCode() {
           <span style={{ paddingLeft: `${line.indent * 20}px` }}>
             {line.content}
           </span>
-        </motion.div>
+        </div>
       ))}
     </div>
   );
@@ -284,7 +274,6 @@ export default function BentoGrid() {
           {/* Intro Card - Large */}
           <BentoCard
             className="md:col-span-2 lg:row-span-2 p-8 lg:p-10"
-            delay={0}
           >
             <div className="flex flex-col justify-between h-full">
               <div>
@@ -321,7 +310,6 @@ export default function BentoGrid() {
             <BentoCard
               key={stat.label}
               className="p-6 flex flex-col items-center justify-center text-center"
-              delay={0.1 + i * 0.05}
             >
               <CountUp
                 value={stat.value}
@@ -334,7 +322,7 @@ export default function BentoGrid() {
           ))}
 
           {/* Tech Stack Marquee - Full width */}
-          <BentoCard className="col-span-full p-6" delay={0.3}>
+          <BentoCard className="col-span-full p-6">
             <p className="text-xs text-white/30 uppercase tracking-widest font-mono mb-4">
               Tech Stack
             </p>
@@ -345,7 +333,7 @@ export default function BentoGrid() {
           </BentoCard>
 
           {/* Terminal Code Card */}
-          <BentoCard className="md:col-span-2 p-6" delay={0.35}>
+          <BentoCard className="md:col-span-2 p-6">
             <div className="flex items-center gap-2 mb-4">
               <div className="flex gap-1.5">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
@@ -362,7 +350,6 @@ export default function BentoGrid() {
           {/* Location Card */}
           <BentoCard
             className="p-6 flex flex-col justify-center"
-            delay={0.4}
           >
             <div className="text-2xl mb-2">&#x1F4CD;</div>
             <p className="text-white/80 font-medium text-sm">
@@ -374,7 +361,6 @@ export default function BentoGrid() {
           {/* Available Card */}
           <BentoCard
             className="p-6 flex flex-col justify-center"
-            delay={0.45}
           >
             <div className="flex items-center gap-2 mb-2">
               <span className="relative flex h-2.5 w-2.5">
