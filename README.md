@@ -5,7 +5,6 @@
 [![Portfolio](https://img.shields.io/badge/Portfolio-6c63ff?style=for-the-badge&logo=vercel&logoColor=white)](https://khushalvekariya.vercel.app)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/khushal-vekariya/)
 [![Upwork](https://img.shields.io/badge/Upwork-6FDA44?style=for-the-badge&logo=upwork&logoColor=white)](https://www.upwork.com/freelancers/~01d2581528ac697aeb)
-[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:khushalvekariya12@gmail.com)
 
 <br/>
 
@@ -28,8 +27,7 @@ const khushal = {
     },
     currentFocus: ["SaaS Architecture", "AI Integration", "DevOps"],
     upwork: "Top Rated Plus (Top 3%)",
-    portfolio: "https://khushalvekariya.vercel.app",
-    upworkProfile: "https://www.upwork.com/freelancers/~01d2581528ac697aeb"
+    portfolio: "https://khushalvekariya.vercel.app"
 };
 ```
 
@@ -138,7 +136,6 @@ const khushal = {
 - Integrating AI (OpenAI, LangChain) into production applications
 - Exploring advanced RAG pipelines and agentic workflows
 - Available for freelance — **Top Rated Plus** on Upwork
-- Reach me at **khushalvekariya12@gmail.com**
 
 ---
 
