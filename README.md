@@ -15,7 +15,7 @@
 
 ---
 
-## `> whoami`
+<h2>> whoami</h2>
 
 ```js
 const khushal = {
@@ -35,7 +35,7 @@ const khushal = {
 
 ---
 
-## What I Build
+<h2>What I Build</h2>
 
 - **SaaS Platforms** — Multi-tenant architecture, subscription billing, custom domains, analytics dashboards
 - **AI-Powered Products** — LLM APIs, RAG pipelines, intelligent automations embedded into real products users pay for
@@ -44,7 +44,7 @@ const khushal = {
 
 ---
 
-## Quick Stats
+<h2>Quick Stats</h2>
 
 | | |
 |:---|:---|
@@ -57,7 +57,7 @@ const khushal = {
 
 ---
 
-## Tech Stack & Tools
+<h2>Tech Stack & Tools</h2>
 
 <div align="center">
 
@@ -102,7 +102,7 @@ const khushal = {
 
 ---
 
-## What I Do
+<h2>What I Do</h2>
 
 **SaaS Development** — Multi-tenant apps, subscription billing, user management, custom domains, analytics — production-ready from day one.
 
@@ -118,7 +118,7 @@ const khushal = {
 
 ---
 
-## GitHub Analytics
+<h2>GitHub Analytics</h2>
 
 <div align="center">
 
@@ -132,7 +132,7 @@ const khushal = {
 
 ---
 
-## Currently
+<h2>Currently</h2>
 
 - Building SaaS products and managing infrastructure at **MantisHub**
 - Integrating AI (OpenAI, LangChain) into production applications
