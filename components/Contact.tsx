@@ -1,20 +1,11 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Mail, MapPin, Send, CheckCircle, AlertCircle } from "lucide-react";
 import TextReveal from "./TextReveal";
 import MagneticButton from "./MagneticButton";
 import SpotlightCard from "./SpotlightCard";
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, delay: i * 0.08, ease: [0.25, 0.4, 0.25, 1] },
-  }),
-};
 
 function FloatingLabelInput({
   label,
@@ -82,8 +73,6 @@ function FloatingLabelInput({
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-30px" });
-
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
@@ -126,39 +115,21 @@ export default function Contact() {
       />
 
       <div className="max-w-6xl mx-auto px-6 relative">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="text-accent font-mono text-sm mb-3 tracking-wider"
-          >
+        <div>
+          <p className="text-accent font-mono text-sm mb-3 tracking-wider">
             04 / Contact
-          </motion.p>
+          </p>
           <TextReveal as="h2" className="text-3xl sm:text-5xl font-bold mb-4 block">
             Let&apos;s build something worth launching
           </TextReveal>
-          <motion.div
-            initial={{ width: 0 }}
-            animate={isInView ? { width: 80 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="glow-line mb-8"
-          />
-          <motion.p
-            variants={fadeInUp}
-            custom={2}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
+          <div className="glow-line mb-8" style={{ width: 80 }} />
+          <p
             className="text-white/40 max-w-xl mb-12 text-[15px] leading-relaxed"
           >
             Have a SaaS idea or need a developer who can own it end-to-end?
             I&apos;d love to hear about your project.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-4">
@@ -190,10 +161,10 @@ export default function Contact() {
             ].map((item, i) => (
               <motion.div
                 key={item.label}
-                variants={fadeInUp}
-                custom={i}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
+                initial={{ y: 15 }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.4, delay: i * 0.08, ease: [0.25, 0.4, 0.25, 1] }}
               >
                 <SpotlightCard
                   className={`rounded-2xl border ${
@@ -218,10 +189,10 @@ export default function Contact() {
           </div>
 
           <motion.form
-            variants={fadeInUp}
-            custom={3}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
+            initial={{ y: 15 }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.4, delay: 0.24, ease: [0.25, 0.4, 0.25, 1] }}
             className="space-y-4"
             onSubmit={handleSubmit}
           >

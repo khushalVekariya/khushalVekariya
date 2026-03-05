@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, ReactNode } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import CountUp from "./CountUp";
 
 // 3D Tilt + Spotlight card for bento cells
@@ -34,10 +34,10 @@ function BentoCard({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ y: 20 }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true, margin: "-20px" }}
-      transition={{ duration: 0.5, delay: delay * 0.5, ease: [0.25, 0.4, 0.25, 1] }}
+      transition={{ duration: 0.4, delay: delay * 0.5, ease: [0.25, 0.4, 0.25, 1] }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => {
@@ -209,8 +209,8 @@ function TerminalCode() {
       {lines.map((line, i) => (
         <motion.div
           key={i}
-          initial={{ opacity: 0, x: -10 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ x: -10 }}
+          whileInView={{ x: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8 + i * 0.1 }}
           className="flex"
@@ -253,7 +253,6 @@ const stats = [
 
 export default function BentoGrid() {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-30px" });
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -274,21 +273,11 @@ export default function BentoGrid() {
 
       <div className="max-w-6xl mx-auto px-6 relative">
         {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="text-accent font-mono text-sm mb-3 tracking-wider"
-          >
+        <div className="mb-12">
+          <p className="text-accent font-mono text-sm mb-3 tracking-wider">
             01 / About
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">

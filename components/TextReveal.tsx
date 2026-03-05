@@ -23,8 +23,8 @@ export default function TextReveal({ children, className = "", delay = 0, as: Ta
           <span key={i} className="inline-block">
             <motion.span
               className="inline-block"
-              initial={{ y: 15, opacity: 0 }}
-              animate={isInView ? { y: 0, opacity: 1 } : { y: 15, opacity: 0 }}
+              initial={{ y: 10 }}
+              animate={isInView ? { y: 0 } : { y: 10 }}
               transition={{
                 duration: 0.5,
                 delay: delay + i * 0.04,

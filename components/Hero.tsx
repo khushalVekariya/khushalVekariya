@@ -12,31 +12,6 @@ const roles = [
   "Laravel & AI Specialist",
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  show: (delay: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay, ease: [0.25, 0.4, 0.25, 1] },
-  }),
-};
-
-const letterContainer = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.03, delayChildren: 0.3 } },
-};
-
-const letterAnim = {
-  hidden: { y: 30, opacity: 0, scale: 0.6, rotateX: -90 },
-  show: {
-    y: 0,
-    opacity: 1,
-    scale: 1,
-    rotateX: 0,
-    transition: { duration: 0.5, ease: [0.25, 0.4, 0.25, 1] },
-  },
-};
-
 const techBadges = [
   { label: "Vue.js", top: "-12%", left: "5%", delay: 0.8, color: "text-emerald-400", border: "border-emerald-400/25", bg: "bg-emerald-400/5" },
   { label: "Laravel", top: "-5%", right: "-5%", delay: 1.0, color: "text-red-400", border: "border-red-400/25", bg: "bg-red-400/5" },
@@ -62,7 +37,6 @@ export default function Hero() {
   });
 
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, -60]);
-
   const shape1Y = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const shape2Y = useTransform(scrollYProgress, [0, 1], [0, -120]);
   const shape3Y = useTransform(scrollYProgress, [0, 1], [0, -60]);
@@ -103,7 +77,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-x-clip"
     >
       <div className="absolute inset-0 hero-gradient" />
 
@@ -138,32 +112,14 @@ export default function Hero() {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-[20%] right-[15%] w-1.5 h-1.5 rounded-full bg-blue-400/30"
       />
-      {/* Extra floating particles */}
-      <motion.div
-        animate={{ y: [0, -20, 0], x: [0, 8, 0], opacity: [0, 0.4, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[45%] left-[12%] w-1 h-1 rounded-full bg-accent/40"
-      />
-      <motion.div
-        animate={{ y: [0, 15, 0], x: [0, -10, 0], opacity: [0, 0.3, 0] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-        className="absolute top-[70%] right-[30%] w-1.5 h-1.5 rounded-full bg-purple-400/30"
-      />
 
-      {/* Main content - split layout */}
+      {/* Main content */}
       <motion.div
         style={{ y: yParallax }}
         className="relative w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-32 sm:pt-24 pb-24 z-10 flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16"
       >
-        {/* Left side - Text content */}
         <div className="flex-1 text-center lg:text-left">
-          {/* Status badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 15, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.4, 0.25, 1] }}
-            className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-accent/15 bg-accent/[0.04] backdrop-blur-sm mb-8"
-          >
+          <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-accent/15 bg-accent/[0.04] backdrop-blur-sm mb-8">
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
@@ -171,38 +127,30 @@ export default function Hero() {
             <span className="text-xs text-white/80 font-mono tracking-wider uppercase">
               Available for projects
             </span>
-          </motion.div>
+          </div>
 
-          {/* "Hi, I'm" with blur-in */}
-          <motion.div variants={fadeUp} custom={0.2} initial="hidden" animate="show">
-            <span className="block text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-2">
-              Hi, I&apos;m
-            </span>
-          </motion.div>
+          <span className="block text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-2">
+            Hi, I&apos;m
+          </span>
 
-          {/* Name - per-character 3D flip animation */}
-          <motion.h1
-            variants={letterContainer}
-            initial="hidden"
-            animate="show"
+          <h1
             className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-5 leading-[1.1] sm:whitespace-nowrap"
             style={{ perspective: 600 }}
           >
             {nameChars.map((char, i) => (
-              <span key={i} className="inline-block">
-                <motion.span
-                  variants={letterAnim}
-                  className={`inline-block ${char === " " ? "w-3 sm:w-4" : "gradient-text"}`}
-                  style={{ transformOrigin: "bottom center" }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              </span>
+              <motion.span
+                key={i}
+                initial={{ y: 20 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.4, delay: 0.3 + i * 0.03, ease: [0.25, 0.4, 0.25, 1] }}
+                className={`inline-block ${char === " " ? "w-3 sm:w-4" : "gradient-text"}`}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
             ))}
-          </motion.h1>
+          </h1>
 
-          {/* Typing animation */}
-          <motion.div variants={fadeUp} custom={0.8} initial="hidden" animate="show" className="h-10 mb-8">
+          <div className="h-10 mb-8">
             <p className="text-lg sm:text-xl text-white/60 font-mono tracking-wide">
               {text}
               <motion.span
@@ -211,28 +159,14 @@ export default function Hero() {
                 className="inline-block w-0.5 h-5 bg-accent ml-0.5"
               />
             </p>
-          </motion.div>
+          </div>
 
-          {/* Description */}
-          <motion.p
-            variants={fadeUp}
-            custom={1}
-            initial="hidden"
-            animate="show"
-            className="max-w-xl text-base sm:text-lg text-white/55 leading-relaxed mb-10"
-          >
+          <p className="max-w-xl text-base sm:text-lg text-white/55 leading-relaxed mb-10">
             6+ years building scalable SaaS applications with Laravel, Vue.js, and Nuxt.js.
             Experienced in integrating LLM APIs, AI-powered search, and RAG pipelines into production.
-          </motion.p>
+          </p>
 
-          {/* CTAs */}
-          <motion.div
-            variants={fadeUp}
-            custom={1.2}
-            initial="hidden"
-            animate="show"
-            className="flex flex-col sm:flex-row items-center lg:items-start gap-4"
-          >
+          <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4">
             <MagneticButton
               href="#projects"
               className="group relative px-8 py-3.5 bg-accent hover:bg-accent-light text-white text-sm font-medium rounded-xl transition-all duration-300 hover:shadow-[0_0_50px_rgba(108,99,255,0.35)] inline-block"
@@ -250,47 +184,35 @@ export default function Hero() {
             >
               Get In Touch
             </MagneticButton>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Right side - Profile image with magical effects */}
-        <motion.div
+        {/* Profile image */}
+        <div
           ref={imageRef}
-          initial={{ opacity: 0, scale: 0.85 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
           className="relative flex-shrink-0 w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] lg:w-[340px] lg:h-[340px]"
         >
-          {/* Pulsing glow */}
           <motion.div
             animate={{ scale: [1, 1.08, 1], opacity: [0.15, 0.3, 0.15] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="absolute inset-[-15px] rounded-full bg-gradient-to-br from-accent/30 via-purple-500/20 to-blue-500/10 blur-2xl"
           />
-
-          {/* Outer rings */}
           <motion.div
             animate={{ scale: [1, 1.02, 1] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             className="absolute inset-[-20px] rounded-full border border-accent/10"
           />
           <div className="absolute inset-[-50px] rounded-full border border-purple-500/[0.06]" />
-
-          {/* Rotating dashed ring */}
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
             className="absolute inset-[-35px] rounded-full border border-accent/[0.1] border-dashed"
           />
-
-          {/* Counter-rotating ring */}
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
             className="absolute inset-[-55px] rounded-full border border-purple-400/[0.06] border-dotted"
           />
-
-          {/* Profile image circle - follows mouse slightly */}
           <motion.div
             style={{ x: springX, y: springY }}
             className="relative w-full h-full rounded-full overflow-hidden border-2 border-accent/30 shadow-[0_0_60px_rgba(108,99,255,0.2)]"
@@ -304,20 +226,11 @@ export default function Hero() {
             />
           </motion.div>
 
-          {/* Floating tech badges - hidden on very small screens */}
           {techBadges.map((badge) => (
-            <motion.div
+            <div
               key={badge.label}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: badge.delay, type: "spring", bounce: 0.4 }}
               className="absolute z-10"
-              style={{
-                top: badge.top,
-                left: badge.left,
-                right: badge.right,
-                bottom: badge.bottom,
-              }}
+              style={{ top: badge.top, left: badge.left, right: badge.right, bottom: badge.bottom }}
             >
               <motion.div
                 animate={{ y: [0, -5, 0], x: [0, 2, 0] }}
@@ -326,18 +239,13 @@ export default function Hero() {
               >
                 {badge.label}
               </motion.div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </motion.div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
-      >
+      {/* Scroll indicator - hidden on mobile */}
+      <div className="hidden sm:block absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -349,7 +257,7 @@ export default function Hero() {
             className="w-1 rounded-full bg-accent/60"
           />
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }

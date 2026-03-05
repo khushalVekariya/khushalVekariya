@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import TextReveal from "./TextReveal";
 
 const experiences = [
@@ -36,7 +36,6 @@ const experiences = [
 
 export default function Experience() {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-30px" });
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -60,43 +59,22 @@ export default function Experience() {
       />
 
       <div className="max-w-6xl mx-auto px-6 relative">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="text-accent font-mono text-sm mb-3 tracking-wider"
-          >
+        <div>
+          <p className="text-accent font-mono text-sm mb-3 tracking-wider">
             02 / Experience
-          </motion.p>
+          </p>
           <TextReveal
             as="h2"
             className="text-3xl sm:text-5xl font-bold mb-4 block"
           >
             Career Journey
           </TextReveal>
-          <motion.div
-            initial={{ width: 0 }}
-            animate={isInView ? { width: 80 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="glow-line mb-12"
-          />
-        </motion.div>
+          <div className="glow-line mb-12" style={{ width: 80 }} />
+        </div>
 
         <div className="relative">
-          {/* Timeline line - scroll driven */}
-          <motion.div
-            initial={{ height: 0 }}
-            animate={isInView ? { height: "100%" } : {}}
-            transition={{
-              duration: 1,
-              delay: 0.2,
-              ease: [0.25, 0.4, 0.25, 1],
-            }}
+          {/* Timeline line */}
+          <div
             className="absolute left-[5px] md:left-8 top-0 w-px bg-gradient-to-b from-accent via-accent/30 to-transparent"
           />
 
@@ -104,8 +82,8 @@ export default function Experience() {
             {experiences.map((exp, i) => (
               <motion.div
                 key={exp.role}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ x: -20 }}
+                whileInView={{ x: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
                 transition={{
                   duration: 0.5,
@@ -153,17 +131,12 @@ export default function Experience() {
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {exp.tags.map((tag, tagIndex) => (
-                      <motion.span
+                      <span
                         key={tag}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.15 + tagIndex * 0.05 + 0.3 }}
-                        whileHover={{ scale: 1.1, borderColor: "rgba(108, 99, 255, 0.4)" }}
                         className="text-xs font-mono px-3 py-1 rounded-lg bg-white/[0.04] text-white/40 border border-white/[0.06] hover:border-accent/30 hover:text-accent/70 transition-all duration-300"
                       >
                         {tag}
-                      </motion.span>
+                      </span>
                     ))}
                   </div>
                 </motion.div>

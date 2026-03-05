@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { ExternalLink, Github } from "lucide-react";
 import TextReveal from "./TextReveal";
@@ -98,12 +98,10 @@ const projects = [
 function ProjectCard({
   project,
   index,
-  isInView,
   isFeatured = false,
 }: {
   project: (typeof projects)[number] & { logo?: string };
   index: number;
-  isInView: boolean;
   isFeatured?: boolean;
 }) {
   return (
@@ -123,18 +121,15 @@ function ProjectCard({
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center gap-3">
               {project.logo && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ delay: index * 0.1 + 0.2 }}
+                <div
                   className={`${isFeatured ? "w-10 h-10" : "w-8 h-8"} rounded-lg bg-white/[0.06] border border-white/[0.08] flex items-center justify-center p-1.5 group-hover:border-accent/20 transition-colors duration-300`}
                 >
                   <Image src={project.logo} alt={project.title} width={32} height={32} className="object-contain" />
-                </motion.div>
+                </div>
               )}
-              <motion.span className="font-mono text-accent/40 text-sm" whileHover={{ color: "rgba(108, 99, 255, 0.8)" }}>
+              <span className="font-mono text-accent/40 text-sm">
                 {String(index + 1).padStart(2, "0")}
-              </motion.span>
+              </span>
               {isFeatured && (
                 <span className="text-[10px] font-mono uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent/70">
                   Featured
@@ -165,15 +160,12 @@ function ProjectCard({
 
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag, tagIndex) => (
-              <motion.span
+              <span
                 key={tag}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: index * 0.15 + tagIndex * 0.05 + 0.3 }}
                 className="text-xs font-mono px-3 py-1 rounded-lg bg-white/[0.04] text-white/40 border border-white/[0.06] hover:border-accent/30 hover:text-accent/70 transition-all duration-300"
               >
                 {tag}
-              </motion.span>
+              </span>
             ))}
           </div>
         </div>
@@ -184,7 +176,6 @@ function ProjectCard({
 
 export default function Projects() {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-30px" });
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -204,39 +195,25 @@ export default function Projects() {
       />
 
       <div className="max-w-6xl mx-auto px-6 relative">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="text-accent font-mono text-sm mb-3 tracking-wider"
-          >
+        <div>
+          <p className="text-accent font-mono text-sm mb-3 tracking-wider">
             03 / Projects
-          </motion.p>
+          </p>
           <TextReveal as="h2" className="text-3xl sm:text-5xl font-bold mb-4 block">
             Selected work
           </TextReveal>
-          <motion.div
-            initial={{ width: 0 }}
-            animate={isInView ? { width: 80 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="glow-line mb-12"
-          />
-        </motion.div>
+          <div className="glow-line mb-12" style={{ width: 80 }} />
+        </div>
 
         {/* Featured project - full width */}
         <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.95 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-20px" }}
-          transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
+          transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
           className="mb-6"
         >
-          <ProjectCard project={featured} index={0} isInView={isInView} isFeatured />
+          <ProjectCard project={featured} index={0} isFeatured />
         </motion.div>
 
         {/* Other projects - 2 column grid */}
@@ -244,8 +221,8 @@ export default function Projects() {
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ y: 20 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{
                 duration: 0.5,
@@ -253,7 +230,7 @@ export default function Projects() {
                 ease: [0.25, 0.4, 0.25, 1],
               }}
             >
-              <ProjectCard project={project} index={i + 1} isInView={isInView} />
+              <ProjectCard project={project} index={i + 1} />
             </motion.div>
           ))}
         </div>
