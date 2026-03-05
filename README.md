@@ -9,13 +9,13 @@
 
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=6C63FF&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=100&lines=Building+scalable+SaaS+products+end-to-end;6%2B+years+%7C+Laravel+%7C+Vue.js+%7C+React+%7C+AI+Integration;Top+Rated+Plus+on+Upwork+%E2%80%94+Top+3%25+Talent" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=6C63FF&center=true&vCenter=true&multiline=true&repeat=true&width=750&height=100&lines=Building+scalable+SaaS+products+end-to-end;6%2B+years+%7C+Laravel+%7C+Vue.js+%7C+React+%7C+AI+Integration;Top+Rated+Plus+on+Upwork+%E2%80%94+Top+3%25+Talent" alt="Typing SVG" />
 
 </div>
 
 ---
 
-<h2>> whoami</h2>
+## `> whoami`
 
 ```js
 const khushal = {
@@ -35,7 +35,7 @@ const khushal = {
 
 ---
 
-<h2>What I Build</h2>
+## What I Build
 
 - **SaaS Platforms** — Multi-tenant architecture, subscription billing, custom domains, analytics dashboards
 - **AI-Powered Products** — LLM APIs, RAG pipelines, intelligent automations embedded into real products users pay for
@@ -44,7 +44,7 @@ const khushal = {
 
 ---
 
-<h2>Quick Stats</h2>
+## Quick Stats
 
 | | |
 |:---|:---|
@@ -57,7 +57,7 @@ const khushal = {
 
 ---
 
-<h2>Tech Stack & Tools</h2>
+## Tech Stack & Tools
 
 <div align="center">
 
@@ -102,7 +102,7 @@ const khushal = {
 
 ---
 
-<h2>What I Do</h2>
+## What I Do
 
 **SaaS Development** — Multi-tenant apps, subscription billing, user management, custom domains, analytics — production-ready from day one.
 
@@ -118,7 +118,7 @@ const khushal = {
 
 ---
 
-<h2>GitHub Analytics</h2>
+## GitHub Analytics
 
 <div align="center">
 
@@ -132,7 +132,7 @@ const khushal = {
 
 ---
 
-<h2>Currently</h2>
+## Currently
 
 - Building SaaS products and managing infrastructure at **MantisHub**
 - Integrating AI (OpenAI, LangChain) into production applications
