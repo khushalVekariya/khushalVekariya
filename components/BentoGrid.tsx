@@ -262,7 +262,7 @@ export default function BentoGrid() {
   const bgY = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   return (
-    <section id="about" ref={sectionRef} className="py-20 sm:py-28 relative overflow-x-clip">
+    <section id="about" ref={sectionRef} className="py-20 sm:py-28 relative overflow-x-hidden">
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       {/* Parallax background glow */}

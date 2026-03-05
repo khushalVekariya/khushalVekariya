@@ -185,7 +185,7 @@ export default function Projects() {
   const bgY = useTransform(scrollYProgress, [0, 1], [80, -80]);
 
   return (
-    <section id="projects" ref={sectionRef} className="py-20 sm:py-28 relative overflow-x-clip">
+    <section id="projects" ref={sectionRef} className="py-20 sm:py-28 relative overflow-x-hidden">
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       {/* Parallax background glow */}

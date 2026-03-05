@@ -48,7 +48,7 @@ export default function Experience() {
     <section
       id="experience"
       ref={sectionRef}
-      className="py-20 sm:py-28 relative overflow-x-clip"
+      className="py-20 sm:py-28 relative overflow-x-hidden"
     >
       <div className="section-divider absolute top-0 left-0 right-0" />
 

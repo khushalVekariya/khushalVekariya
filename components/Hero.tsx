@@ -77,7 +77,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center overflow-x-clip"
+      className="relative min-h-screen flex items-center overflow-x-hidden"
     >
       <div className="absolute inset-0 hero-gradient" />
 

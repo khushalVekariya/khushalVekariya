@@ -106,7 +106,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 sm:py-28 relative overflow-x-clip">
+    <section id="contact" ref={sectionRef} className="py-20 sm:py-28 relative overflow-x-hidden">
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       <motion.div
