@@ -9,7 +9,7 @@
 
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=6C63FF&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=100&lines=Building+scalable+SaaS+products+end-to-end;6%2B+years+%7C+Laravel+%7C+Vue.js+%7C+AI+Integration;Top+Rated+Plus+on+Upwork+%E2%80%94+Top+3%25+Talent" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=6C63FF&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=100&lines=Building+scalable+SaaS+products+end-to-end;6%2B+years+%7C+Laravel+%7C+Vue.js+%7C+React+%7C+AI+Integration;Top+Rated+Plus+on+Upwork+%E2%80%94+Top+3%25+Talent" alt="Typing SVG" />
 
 </div>
 
@@ -41,17 +41,15 @@ const khushal = {
 
 ### What I Build
 
-- **SaaS Platforms** — Multi-tenant architecture, subscription billing, custom domains, analytics dashboards
-- **AI-Powered Products** — LLM APIs, RAG pipelines, intelligent automations embedded into real products users pay for
-- **Full-Stack Web Apps** — From database design to pixel-perfect UI, I own the entire stack
-- **DevOps & Infrastructure** — Server provisioning, CI/CD, Docker containers, domain management
+- **SaaS Platforms** — Multi-tenant architecture, subscription billing, custom domains
+- **AI-Powered Products** — LLM APIs, RAG pipelines, intelligent automations
+- **Full-Stack Web Apps** — Database design to pixel-perfect UI
+- **DevOps & Infrastructure** — CI/CD, Docker, server provisioning
 
 </td>
 <td width="50%" valign="top">
 
 ### Quick Stats
-
-<div align="center">
 
 | | |
 |:---|:---|
@@ -61,8 +59,6 @@ const khushal = {
 | **Speciality** | SaaS & AI Integration |
 | **Client Satisfaction** | 100% |
 | **Location** | Gujarat, India |
-
-</div>
 
 </td>
 </tr>
@@ -142,49 +138,51 @@ const khushal = {
 
 <table>
 <tr>
-<td align="center" width="33%">
+<td align="center" width="50%">
 <img src="https://img.shields.io/badge/🏗️-000?style=for-the-badge" />
 <br/><br/>
 <b>SaaS Development</b>
 <br/><br/>
-Multi-tenant apps, subscription billing, user management, custom domains, analytics — production-ready from day one.
+Multi-tenant apps, subscription billing, custom domains, analytics — production-ready from day one.
 </td>
-<td align="center" width="33%">
+<td align="center" width="50%">
 <img src="https://img.shields.io/badge/🤖-000?style=for-the-badge" />
 <br/><br/>
 <b>AI Integration</b>
 <br/><br/>
-OpenAI, LangChain, RAG pipelines, embeddings, and custom AI workflows built into real products — not just demos.
+OpenAI, LangChain, RAG pipelines, embeddings, and custom AI workflows — not just demos.
 </td>
-<td align="center" width="33%">
+</tr>
+<tr>
+<td align="center" width="50%">
 <img src="https://img.shields.io/badge/⚙️-000?style=for-the-badge" />
 <br/><br/>
 <b>DevOps & Infra</b>
 <br/><br/>
-AWS, DigitalOcean, Docker, Nginx, SSL, CI/CD — I deploy, scale, and keep things running reliably.
+AWS, DigitalOcean, Docker, Nginx, SSL, CI/CD — deploy, scale, and run reliably.
 </td>
-</tr>
-<tr>
-<td align="center" width="33%">
+<td align="center" width="50%">
 <img src="https://img.shields.io/badge/🎨-000?style=for-the-badge" />
 <br/><br/>
 <b>Frontend Engineering</b>
 <br/><br/>
-Vue.js, Nuxt.js, React — component-driven UIs, state management, animations, and pixel-perfect responsive design.
+Vue.js, Nuxt.js, React — component-driven UIs, state management, and responsive design.
 </td>
-<td align="center" width="33%">
+</tr>
+<tr>
+<td align="center" width="50%">
 <img src="https://img.shields.io/badge/🔌-000?style=for-the-badge" />
 <br/><br/>
 <b>API & Integrations</b>
 <br/><br/>
-Stripe, PayPal, Twilio, Firebase, and any third-party service your product depends on — cleanly integrated.
+Stripe, PayPal, Twilio, Firebase — any third-party service, cleanly integrated.
 </td>
-<td align="center" width="33%">
+<td align="center" width="50%">
 <img src="https://img.shields.io/badge/🗄️-000?style=for-the-badge" />
 <br/><br/>
 <b>Database Architecture</b>
 <br/><br/>
-MySQL, PostgreSQL, MongoDB, Redis — schema design, indexing, query optimization, and data integrity at scale.
+MySQL, PostgreSQL, MongoDB, Redis — schema design, indexing, and query optimization.
 </td>
 </tr>
 </table>
@@ -195,11 +193,11 @@ MySQL, PostgreSQL, MongoDB, Redis — schema design, indexing, query optimizatio
 
 <div align="center">
 
-<img width="70%" src="https://github-readme-streak-stats.herokuapp.com/?user=khushalVekariya&theme=tokyonight&hide_border=true&background=0d1117&stroke=30363d&ring=6c63ff&fire=6c63ff&currStreakLabel=6c63ff&sideLabels=c9d1d9&currStreakNum=c9d1d9&sideNums=c9d1d9&dates=555555" />
+<img width="100%" src="https://github-readme-streak-stats.herokuapp.com/?user=khushalVekariya&theme=tokyonight&hide_border=true&background=0d1117&stroke=30363d&ring=6c63ff&fire=6c63ff&currStreakLabel=6c63ff&sideLabels=c9d1d9&currStreakNum=c9d1d9&sideNums=c9d1d9&dates=555555" />
 
 <br/>
 
-<img width="90%" src="https://github-readme-activity-graph.vercel.app/graph?username=khushalVekariya&theme=tokyo-night&hide_border=true&bg_color=0d1117&color=6c63ff&line=6c63ff&point=c9d1d9&area=true&area_color=6c63ff" />
+<img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=khushalVekariya&theme=tokyo-night&hide_border=true&bg_color=0d1117&color=6c63ff&line=6c63ff&point=c9d1d9&area=true&area_color=6c63ff" />
 
 </div>
 
@@ -207,11 +205,11 @@ MySQL, PostgreSQL, MongoDB, Redis — schema design, indexing, query optimizatio
 
 ## Currently
 
-- 🔭 Building SaaS products and managing infrastructure at **MantisHub**
-- 🤖 Integrating AI (OpenAI, LangChain) into production applications
-- 🌱 Exploring advanced RAG pipelines and agentic workflows
-- 💼 Available for freelance — **Top Rated Plus** on Upwork
-- 📫 Reach me at **khushalvekariya12@gmail.com**
+- Building SaaS products and managing infrastructure at **MantisHub**
+- Integrating AI (OpenAI, LangChain) into production applications
+- Exploring advanced RAG pipelines and agentic workflows
+- Available for freelance — **Top Rated Plus** on Upwork
+- Reach me at **khushalvekariya12@gmail.com**
 
 ---
 
